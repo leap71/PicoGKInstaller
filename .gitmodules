@@ -1,0 +1,3 @@
+[submodule "PicoGK"]
+	path = PicoGK
+	url = https://github.com/leap71/PicoGK
