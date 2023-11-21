@@ -1,3 +1,7 @@
+#Win64 Installer Temp
+
+Installers/Win64/Output/
+
 # globs
 Makefile.in
 *.userprefs
