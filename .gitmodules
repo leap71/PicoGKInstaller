@@ -1,0 +1,12 @@
+[submodule "PicoGKExample/LatticeLibrary"]
+	path = PicoGKExample/LatticeLibrary
+	url = https://github.com/leap71/LEAP71_LatticeLibrary
+[submodule "PicoGKExample/ShapeKernel"]
+	path = PicoGKExample/ShapeKernel
+	url = https://github.com/leap71/LEAP71_ShapeKernel
+[submodule "PicoGKExample/PicoGK"]
+	path = PicoGKExample/PicoGK
+	url = https://github.com/leap71/PicoGK
+[submodule "Tools/create-dmg"]
+	path = Tools/create-dmg
+	url = https://github.com/create-dmg/create-dmg
