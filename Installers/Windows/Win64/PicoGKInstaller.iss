@@ -19,7 +19,7 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={userdocs}\{#MyAppName}
 DefaultGroupName={#MyAppName}
-LicenseFile=..\LICENSE.txt
+LicenseFile=..\..\LICENSE.txt
 OutputBaseFilename=PicoGK_Installer_{#MyAppVersion}_Win64
 OutputDir=../
 Compression=lzma
@@ -36,7 +36,7 @@ WizardSmallImageFile=Src\Icons\*.bmp
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
 [Icons]
-Name: "{group}\PicoGK Example";  Filename: "{app}\Example";
+Name: "{group}\PicoGK Example";  Filename: "{app} Example";
 
 [Files]
 Source: "Src\blosc.dll"; DestDir: "{sys}"
@@ -45,6 +45,5 @@ Source: "Src\picogk.1.1.dll"; DestDir: "{sys}"
 Source: "Src\tbb12.dll"; DestDir: "{sys}"
 Source: "Src\zlib1.dll"; DestDir: "{sys}"
 Source: "Src\zstd.dll"; DestDir: "{sys}"
-Source: "Src\PicoGKExample\*"; DestDir: "{app}\Example"; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "..\..\PicoGK\*"; DestDir: "{app}\Example\PicoGK"; Flags: ignoreversion recursesubdirs createallsubdirs
+Source: "..\..\..\PicoGK Example\*"; DestDir: "{app} Example"; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
