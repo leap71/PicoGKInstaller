@@ -2,8 +2,8 @@
 
 Installers/Win64/Output/
 
-#MacAMD64 Installer Temp
-Installers/MacOSX/MacArm64/Temp
+#MacARM64 Installer Temp
+Installers/macOS/AppleSilicon/Temp
 
 # globs
 Makefile.in
