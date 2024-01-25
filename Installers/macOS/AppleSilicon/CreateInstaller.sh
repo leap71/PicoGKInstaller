@@ -131,3 +131,10 @@ tiffutil -cathidpicheck ../Common/PicoGKInstaller.png ../Common/PicoGKInstaller@
 echo "Signing DMG"
 
 L71_Sign "../../${strPicoGKDmg}"
+
+xcrun notarytool submit "../../${strPicoGKDmg}" --keychain-profile "notarytoolpwd" --wait
+
+xcrun stapler staple "../../${strPicoGKDmg}"
+
+xcrun stapler validate "../../${strPicoGKDmg}"
+
