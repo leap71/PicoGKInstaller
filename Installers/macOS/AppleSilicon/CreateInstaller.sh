@@ -1,6 +1,6 @@
 #!/bin/bash
 
-strPicoGKVersion="1.2"
+strPicoGKVersion="1.3"
 strPicoGKArchitecture="arm64"
 strPicoGKPrefix="picogk.${strPicoGKVersion}"
 strPicoGKDylib="${strPicoGKPrefix}.dylib"
@@ -132,9 +132,23 @@ echo "Signing DMG"
 
 L71_Sign "../../${strPicoGKDmg}"
 
+
+echo "-------------------------------------------"
+echo "Running Apple notarization and verifying it"
+echo "-------------------------------------------"
+echo "This can take a few minutes"
+echo "-------------------------------------------"
+
 xcrun notarytool submit "../../${strPicoGKDmg}" --keychain-profile "notarytoolpwd" --wait
+
+echo "-------------------------------------------"
 
 xcrun stapler staple "../../${strPicoGKDmg}"
 
+echo "-------------------------------------------"
+
 xcrun stapler validate "../../${strPicoGKDmg}"
+
+echo "-------------------------------------------"
+
 
