@@ -10,3 +10,6 @@
 [submodule "PicoGK Example/LatticeLibrary"]
 	path = PicoGK Example/LatticeLibrary
 	url = https://github.com/leap71/LEAP71_LatticeLibrary
+[submodule "PicoGK Example/QuasiCrystals"]
+	path = PicoGK Example/QuasiCrystals
+	url = https://github.com/leap71/LEAP71_QuasiCrystals
