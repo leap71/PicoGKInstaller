@@ -1,6 +1,6 @@
 #!/bin/bash
 
-strPicoGKVersion="1.3"
+strPicoGKVersion="1.5"
 strPicoGKArchitecture="arm64"
 strPicoGKPrefix="picogk.${strPicoGKVersion}"
 strPicoGKDylib="${strPicoGKPrefix}.dylib"
