@@ -1,5 +1,15 @@
 # Release Notes
 
+# PicoGK v1.6.0
+
+PicoGK v1.6.0 adds one new function to the runtime (hence the number jump) for the creation of a `ScalarField` from `Voxels`. It also adds a way to run PicoGK in headless mode.
+
+- **NEW**: You can now run PicoGK in headless mode, [see discussion post for an example](https://github.com/leap71/PicoGK/discussions/30). 
+- **NEW**: You can create a `ScalarField` from `Voxels`, setting the scalar value to a constant for every voxel that is inside/surface. Great for creating scalar fields for simulation, for example setting the density value of a fluid domain.
+- **NEW**: Added way to detect and color code defect signed distance fields in `SdfVisualizer`.
+- **FIX**: `Voxels.ProjectZSlice` created degenerate voxel fields, which resulted in open meshes, when converted to `Mesh`.
+- **FIX**: The documentation instructed you to download .NET 8, but the example project installed by the installer used .NET 7. The example project now uses .NET 8 as mentioned in the documentation. 
+
 ## PicoGK v1.5.0
 
 PicoGK v1.5.0 is a major update. The focus of this release is the introduction of field data types for scalar fields and vector fields. Using these types, you can interface with simulation packages, and read the results back to build feedback loops in your software.
