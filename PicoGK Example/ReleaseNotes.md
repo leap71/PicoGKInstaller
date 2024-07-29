@@ -1,6 +1,21 @@
 # Release Notes
 
-# PicoGK v1.6.0
+## PicoGK v1.7.0
+
+PicoGK v1.7.0 adds support for the industry standard .CLI file format for slice exchange with Laser Powder Bed Fusion (LBPF) printers. It also increases robustness for non-standard scenarios where you run multiple headless versions of PicoGK or create multiple viewers.
+
+- **NEW**: Support for ASCII-based .CLI output for easy interchange with LBPF printers, such as EOS or EPLUS.
+- **NEW**: Suport for vectorizing slices using the Marching Squares algorithm (used by .CLI output)
+- **NEW**: Support for generating interpolated slices from non-integer Z positions (used by .CLI output)
+- **NEW**: Classes to work with RGB, RGBA, BGR, BGRA 8-bit images
+- **NEW**: Mesh can be transformed using a Matrix4x4
+- **CHANGE**: Viewer can now use a specific log file
+- **FIX**: BBox3 created a maximally extended bounding box, when an empty BBox2 was included
+- **FIX**: Viewer window was not destroyed in non-standard use cases (running multiple library calls in sequence)
+- **FIX**: Memory was not released when using multiple Library objects in headless mode
+- 
+
+## PicoGK v1.6.0
 
 PicoGK v1.6.0 adds one new function to the runtime (hence the number jump) for the creation of a `ScalarField` from `Voxels`. It also adds a way to run PicoGK in headless mode.
 
