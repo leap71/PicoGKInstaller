@@ -13,7 +13,6 @@ PicoGK v1.7.0 adds support for the industry standard .CLI file format for slice 
 - **FIX**: BBox3 created a maximally extended bounding box, when an empty BBox2 was included
 - **FIX**: Viewer window was not destroyed in non-standard use cases (running multiple library calls in sequence)
 - **FIX**: Memory was not released when using multiple Library objects in headless mode
-- 
 
 ## PicoGK v1.6.0
 
