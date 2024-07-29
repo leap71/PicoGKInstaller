@@ -1,6 +1,6 @@
 #!/bin/bash
 
-strPicoGKVersion="1.6"
+strPicoGKVersion="1.7"
 strPicoGKArchitecture="arm64"
 strPicoGKPrefix="picogk.${strPicoGKVersion}"
 strPicoGKDylib="${strPicoGKPrefix}.dylib"
@@ -49,8 +49,8 @@ function L71_bUpdateLibraryName
         install_name_tool -change "$strOldLib" "$strNewLib" "$strBinary"
     else
         # If no, print an error message and return a non-zero status
-        echo "Error: Library name $strOldLib not found in $strBinary"
-        return 1
+        echo "--- Error: Library name $strOldLib not found in $strBinary"
+        exit 1;
     fi
 }
 
@@ -59,6 +59,35 @@ function L71_Sign
     echo "Signing with identity '${strDeveloperID}'"
     local strBinary=$1
     codesign --timestamp --options runtime --force --verbose -i "${strPicoGKBundle}" --sign "Developer ID Application: ${strDeveloperID}" "${strBinary}"
+}
+
+function L71_UpdateHomebrewDependencies
+{
+    local strBinary=$1
+    local strPrefix=$2
+    local strOtool=""
+
+    echo "Updating ${strBinary} homebrew dependencies to local path"
+
+    echo "Processing '${strBinary}'"
+    strOtool=$(otool -L ${strBinary})
+
+    echo "'${strOtool}'"
+
+    echo "$strOtool" | grep '/opt/homebrew' | while read -r strLine ; do
+       local strOriginalPath=$(echo $strLine | awk '{print $1}')
+       local strLibOldName=$(basename $strOriginalPath)
+       local strLibNewName=${strPrefix}_${strLibOldName}
+       local strNewPath="/usr/local/lib/${strLibNewName}"
+    
+       cp $strOriginalPath files/${strLibNewName}
+
+       L71_Sign files/${strLibNewName}
+
+       L71_bUpdateLibraryName ${strBinary} $strOriginalPath $strNewPath
+    done
+
+    L71_Sign ${strBinary}
 }
 
 # Update all submodules, so we don't create an outdated installer
@@ -74,17 +103,9 @@ echo "-------------------------------"
 rm files/*
 
 cp source/*.dylib files/
-mv files/liblzma.5.dylib files/${strPicoGKPrefix}_liblzma.5.dylib
-mv files/libzstd.1.dylib files/${strPicoGKPrefix}_libzstd.1.dylib
 mv files/${strPicoGKPrefix}.?.dylib files/${strPicoGKDylib}
 
-L71_Sign files/${strPicoGKPrefix}_liblzma.5.dylib
-L71_Sign files/${strPicoGKPrefix}_libzstd.1.dylib
-
-L71_bUpdateLibraryName files/${strPicoGKDylib} /opt/homebrew/opt/xz/lib/liblzma.5.dylib   /usr/local/lib/${strPicoGKPrefix}_liblzma.5.dylib
-L71_bUpdateLibraryName files/${strPicoGKDylib} /opt/homebrew/opt/zstd/lib/libzstd.1.dylib /usr/local/lib/${strPicoGKPrefix}_libzstd.1.dylib
-
-L71_Sign files/${strPicoGKDylib}
+L71_UpdateHomebrewDependencies files/${strPicoGKDylib} $strPicoGKPrefix
 
 echo "-------------------------------"
 echo "Create install .PKG"
