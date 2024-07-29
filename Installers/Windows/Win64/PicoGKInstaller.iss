@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "PicoGK"
-#define MyAppVersion "1.6.0"
+#define MyAppVersion "1.7.0"
 #define MyAppPublisher "LEAP 71"
 #define MyAppURL "https://github.com/leap71"
 
@@ -41,7 +41,7 @@ Name: "{group}\PicoGK Example";  Filename: "{app}";
 [Files]
 Source: "Src\blosc.dll"; DestDir: "{sys}"
 Source: "Src\lz4.dll"; DestDir: "{sys}"
-Source: "Src\picogk.1.6.dll"; DestDir: "{sys}"
+Source: "Src\picogk.1.7.dll"; DestDir: "{sys}"
 Source: "Src\tbb12.dll"; DestDir: "{sys}"
 Source: "Src\zlib1.dll"; DestDir: "{sys}"
 Source: "Src\zstd.dll"; DestDir: "{sys}"
