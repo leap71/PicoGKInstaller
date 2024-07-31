@@ -5,6 +5,11 @@ Installers/Win64/Output/
 #MacARM64 Installer Temp
 Installers/macOS/AppleSilicon/Temp
 
+# Installer files
+*.dmg
+*.pkg
+*.exe
+
 # globs
 Makefile.in
 *.userprefs
