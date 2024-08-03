@@ -1,5 +1,13 @@
 # Release Notes
 
+## PicoGK v1.7.1
+
+PicoGK v1.7.1 is a maintenance release that enhances CLI output.
+
+- **FIX**: Both `Voxels.GetSlice` and `Voxels.GetInterpolatedSlice` returned images that were flipped in the Y axis, leading to mirrored parts when printing from .CLI files.
+- **FIX:** The .CLI bounding box is now correctly calculated from the Z slice positions, 0 at the bottom and Z position of the last slice at the top.
+- **CHANGE**: .CLI output now actively closes the contour by adding the first vertex of an outline as the last vertex of the outline. The specification is not clear on this, and some print prep software requires it.
+
 ## PicoGK v1.7.0
 
 PicoGK v1.7.0 adds support for the industry standard .CLI file format for slice exchange with Laser Powder Bed Fusion (LBPF) printers. It also increases robustness for non-standard scenarios where you run multiple headless versions of PicoGK or create multiple viewers.
