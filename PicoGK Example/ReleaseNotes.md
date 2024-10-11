@@ -1,5 +1,19 @@
 # Release Notes
 
+## PicoGK v1.7.5
+
+PicoGK v1.7.5 adds significant new functionality on the C# side, but no changes to the runtime executable were made.
+
+- **NEW:** Many new functions were added to the `Voxels` object, inspired by the ShapeKernel
+- **NEW:** Added mathematical operators `+`, `-` and `&` to the `Voxels` object. You can now say `Voxels vox = (vox1 + vox2) - vox3` for example. `&` is the intersection function (boolean AND). Check out the updated `Ex_BooleanShowCase.cs` for examples.
+- **CHANGE:** More enhancements to CLI output — now defaults to first layer filled, which seems to be the general consensus.
+- **NEW:** New functionality in CSV creation
+- **NEW:** FloatColor can convert itself to a string hex code
+- **NEW:** Viewer can now be queried whether it's idle. Good if you want to wait for a screen capture to complete, for example.
+- **CHANGE:** Shape Kernel now has support for various geometric shapes
+- **CHANGE:** Many Shape Kernel functions now map to the native PicoGK `Voxels` functions. Use the PicoGK functions if you start a new project, as the syntax is more concise.
+- **NEW:** `LineModulation` can now be scaled
+
 ## PicoGK v1.7.1
 
 PicoGK v1.7.1 is a maintenance release that enhances CLI output.
